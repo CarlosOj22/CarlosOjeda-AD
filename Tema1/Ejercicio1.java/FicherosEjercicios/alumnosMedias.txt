@@ -1,0 +1,4 @@
+pepe:4,00
+ana:7,00
+luisa:9,00
+diego:4,00
