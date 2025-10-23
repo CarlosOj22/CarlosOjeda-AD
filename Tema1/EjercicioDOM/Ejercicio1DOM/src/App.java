@@ -1,11 +1,56 @@
 //Carlos Ojeda Corona
-//Ejercicio 1 DOM-ACCESO A DATOS
+//Ejercicio 4-ACCESO A FICHERO XML (DOM)
+/*Realiza un programa Java que:
+a)En su método main cree un fichero “EMPLEADOS.DAT”, que contenga al menos
+5 objetos de la clase Empleado.
+La clase Empleado implementa al Interface Serializable y tiene las siguientes propiedades:
+CODIGO (int)
+NOMBRE (string)
+DIRECCION (string)
+SALARIO (float)
+COMISION (float)
+Se utilizará un FileOutputFile para crear el fichero.
 
+b)A partir de los datos del fichero “EMPLEADOS.DAT” crear un fichero 
+llamado “EMPLEADOS.XML” usando DOM y que tenga una estructura como la siguiente 
+(se puede hacer con un método que recibe como parámetro el String “EMPLEADOS.DAT”):
+EMPLEADOS.XML ” usando DOM y que tenga una estructura como la siguiente
+(se puede hacer con un método que recibe como parámetro el String
+“EMPLEADOS.DAT”)
+EMPLEADOS.DAT”):
+---------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<EMPLEADOS>
+  <Empleado>
+    <CODIGO>1</CODIGO>
+    <COMISION>12.0</COMISION>
+    <DIRECCION>Madrid</DIRECCION>
+    <NOMBRE>Juan</NOMBRE>
+    <SALARIO>1500.0</SALARIO>
+  </Empleado>
+  <Empleado>
+    <CODIGO>2</CODIGO>
+    <COMISION>9.0</COMISION>
+    <DIRECCION>Murcia</DIRECCION>
+    <NOMBRE>María</NOMBRE>
+    <SALARIO>1700.0</SALARIO>
+  </Empleado>
+.............................................
+.............................................
+</EMPLEADOS> */
+
+
+
+
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 //IMPORT PARA XML DOM JAVA
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -51,38 +96,41 @@ public class App {
             oos.writeObject(emp3);
             oos.writeObject(emp4);
             oos.writeObject(emp5);
-
+            System.out.println("Archivo " + archivo + " creado correctamente...");
             oos.close();
          }catch (Exception e) {
            System.out.println("Problemas en la creacion del archivo...");
          }
     }
 
-    public static void creacionXML(String archivoBat){
-       
-      try {//METO TODO EN UN TRY CATCH PARA QUE NO ERROR Y SEA VISIBLE LAS VARIABLES ATODO EL METODO
+    public static void creacionXML(String archivoDat){
+       List<Empleado> listaEmpleados = new ArrayList<>();//Lista para almacenar los empleados leidos del dat
+      
+       try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivoDat))) {
 
       //Inputs para leer el archivo empleados dat que hemos creado 
-        FileInputStream fis = new FileInputStream(archivo);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-
-        //CREO DOM VACIO, CON DOCUMENT BUILDE FACTORU, DOM IMPLEMENTATION o COMO EJEMPLO
-        //CHEQUEAR REFERENCIAS DESDE STATICOS A NO ESTATICOS Y QUE ES MEJOR DEMAS FORMAS DE HACERLo
-
-      
-          DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-          DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-          Document doc = dBuilder.newDocument();
-          //SE CREA ASI? UNO POR UNO? 
-          Element elementoRaiz = doc.createElement("EMPLEADOS");
-          doc.appendChild(elementoRaiz);
-
-
+        
+        while (true) {
           try {
-            while(true){
-              Empleado empleado = (Empleado)ois.readObject();
+              Empleado empleado = (Empleado) ois.readObject();
+              listaEmpleados.add(empleado);
+          } catch (EOFException e) {
+              break;
+          }
+}
+              //CREO DOM VACIO, CON DOCUMENT BUILDE FACTORU, DOM IMPLEMENTATION o COMO EJEMPLO
+              //CHEQUEAR REFERENCIAS DESDE STATICOS A NO ESTATICOS Y QUE ES MEJOR DEMAS FORMAS DE HACERLo
 
-              //Creamos elemento empleado para el xml
+              
+              DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+              DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+              Document doc = dBuilder.newDocument();
+              //SE CREA ASI? UNO POR UNO? 
+              Element elementoRaiz = doc.createElement("EMPLEADOS");
+              doc.appendChild(elementoRaiz);
+
+              for(Empleado empleado : listaEmpleados){
+                //Creamos elemento empleado para el xml
               Element elementoEmpleado = doc.createElement("Empleado");
               elementoRaiz.appendChild(elementoEmpleado);
 
@@ -110,9 +158,7 @@ public class App {
               Element elementoSalario = doc.createElement("SALARIO");
               elementoSalario.appendChild(doc.createTextNode(String.valueOf(empleado.getSalario())));
               elementoEmpleado.appendChild(elementoSalario);
-
-              ois.close();
-              fis.close();
+              }
 
             //GUARDAR EL DOCUMENTO COMO XML
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -122,11 +168,8 @@ public class App {
             StreamResult result = new StreamResult(new File(archivoXml));
             
             transformer.transform(source, result);
-            }
-          } catch (Exception e) {
-            
-          }
-          } catch (Exception e) {
-        }
-    }  
+    }catch(Exception e) {
+      
+    } 
+}
 }

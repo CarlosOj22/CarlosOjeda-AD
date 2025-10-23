@@ -1,5 +1,30 @@
 //Carlos Ojeda Corona
-//Ejercicio3
+//Ejercicio3-EJERCICIO FICHEROS ObjectInputStream y ObjectOutputStream
+/*1º
+-Realiza un programa Java para gestionar una serie de Articulos. Lo primero que hará el programa al
+ejecutarse, será cargar los artículos almacenados en un fichero“artículos.dat”
+(los artículos están almacenados en forma de objetos serializados mediante ObjectOutputStrem), 
+en un arrayList de artículos.
+La clase Articulo implementará la interface Serializable y tiene la siguiente estructura:
+codigo (int)
+nombre (String)
+precio (double)
+stock (int)
+Posteriormente, se mostrará un menú con las siguientes opciones:
+1.Mostrar todos los artículos (se leerán los datos del arrayList)
+2.Añadir un artículo (se pedirán todos los datos del artículo por teclado y se almacenará en el
+arrayList)
+Nota: comprobaremos que los datos sean correctos y que el código y el nombre del artículo 
+no existe ya
+3.Mostrar datos de un artículo por nombre (se leerá por teclado y se buscará en el arrayList)
+4.Mostrar artículos con stock mínimo (se leerá una cantidad por teclado y se buscarán artículos
+con un stock menor a esta cantidad)
+5.Modificar el precio de un artículo (pedirá el nombre por teclado y si existe, nos pedirá el nuevo
+precio y lo modificará en el arrayList)
+6.Salir (al salir, se copia todo el arrayList de artículos en el fichero “articulos.dat”,
+utilizando la clase ObjectOutputStream) */
+
+
 /*Clase Main, que gestiona la introduccion de datos en el fichero, su lectura, su modificacion en el array
  * del programa y su posterior reintroduccion al fichero.
  */

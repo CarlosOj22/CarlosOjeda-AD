@@ -53,6 +53,6 @@ public class Empleado implements Serializable {
     @Override
     //Metodo To string
     public String toString(){
-        return "";
+        return "Empleado [codigo=" + codigo + ", nombre=" + nombre + ", direccion=" + direccion + ", salario=" + salario + ", comision=" + comision + "]";
     }
 }//EMPLEADO

@@ -1,5 +1,22 @@
 //Carlos Ojeda Corona
-//Ehercicio 2
+//Ehercicio 2-Ejercicios de Ficheros de acceso aleatorio
+/*1º
+-A ejecutar el programa, lo primero que hace es crear el fichero alumnos.dat de acceso
+aleatorio con la siguiente información:
+Apellido:"FERNANDEZ","LOPEZ","GOMEZ","SERRANO","ALONSO"
+Edad:17, 20, 18, 17, 19
+Nota1:7.5, 4.2, 6.5, 8.0, 3.2
+Nota2:5.5, 9.2, 8.5, 5.0, 2.0
+Nota3:4.6, 3.5, 9.0, 7.1, 1.9
+Después se mostrará un menú con las siguientes opciones:
+1.Mostrar datos del alumno (por numero de orden)
+2.Generar fichero de medias (mediasalumnos.dat)
+será de acceso aleatorio y tendrá el nombre y la media de notas de todos los alumnos
+3.Mostrar las notas medias de todos los alumnos (recorrido de fichero mediasalumnos.dat)
+4.Borrar el fichero mediasalumnos.dat (si no está creado, mostrará un mensaje)
+5.Salir del programa */
+
+
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.Scanner;

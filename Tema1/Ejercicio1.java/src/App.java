@@ -1,5 +1,20 @@
 //Carlos Ojeda Corona
-//Ejercicio1
+//Ejercicio1-Lectura y escritura Archivos CSV
+/*Crea un programa Java que:
+a)
+En primer lugar,genere el archivo “alumnosNotas.txt” con java con la siguiente información y
+después lo muestre por pantalla.
+pepe:5:4:3
+ana:6:7:8
+luisa:9:10:8
+diego:5:5:2 
+b)
+A continuación, el programa lee los datos que hay en el archivo “alumnosNotas.txt”, que contiene la información
+anterior y calcula la nota media de cada alumno, generando un archivo llamado “alumnosMedias.txt”
+con una línea para cada alumno, con el formato:nombre_alumno:notaMedia
+c)
+Por último, muestra por pantalla en contenido del fichero “alumnosMedia.txt” */
+
 
 import java.io.*;
 import java.util.Scanner;
