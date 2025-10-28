@@ -4,6 +4,9 @@ public class Estudiantes {
     private int nif;
     private String nombre;
     private int edad;
+
+    public Estudiantes() {
+    }
     public Estudiantes(int nif, String nombre, int edad) {
         this.nif = nif;
         this.nombre = nombre;
