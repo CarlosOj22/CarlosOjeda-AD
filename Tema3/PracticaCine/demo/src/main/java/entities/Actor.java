@@ -11,7 +11,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
-import org.hibernate.annotations.ManyToAny;
 
 //Si quiero un nombre distinto al de la clase en las tablas se le debe poner un name en Entity
 @Entity(name = "actores")

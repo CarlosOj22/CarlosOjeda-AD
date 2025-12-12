@@ -1,11 +1,14 @@
 package entities;
 
+import java.net.Socket;
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity(name="alumnos")
 public class Alumno extends Persona {
+
+    Socket socket; //AÑADIDO PARA QUE ME CUENTE COMO CAMBIO PARA GIT
 
     @OneToOne(cascade = CascadeType.ALL) //Esto representa la relacion 1:M (Un alumno pertenece a un solo centro
     //(1:1) pero un centro puede ser de muchos alumnos 1:M)) del modelo relacional

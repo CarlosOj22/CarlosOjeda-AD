@@ -3,6 +3,8 @@ package com.example;
 import config.HibernateUtil;
 import repositories.AlumnoRepository;
 import repositories.CentroRepository;
+
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.hibernate.Transaction;
@@ -27,7 +29,7 @@ public class Main {
     System.out.println("Iniciando sesion a MariaDB");
     Session session = HibernateUtil.get().openSession();
 
-
+         Socket socket; //AÑADIDO PARA QUE ME CUENTE COMO CAMBIO PARA GIT
     // AQUI incluiremos la lógica del programa
     do {
         System.out.println("---MENU HIBERNATE OPCIONES");
