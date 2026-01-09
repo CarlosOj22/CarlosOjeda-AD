@@ -4,15 +4,15 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:carlos/1234@localhost:49161:XE</property>
     <property name="hibernate.connection.username">carlos</property>
     <property name="hibernate.connection.password">1234</property>
-    <property name="hibernate.hbm2ddl.auto">create</property>
+    <property name="hibernate.hbm2ddl.auto">create-drop</property>
     <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
     <property name="hibernate.dialect.storage_engine">innodb</property>
     <property name="hibernate.show_sql">false</property>
     <mapping class="entities.Pelicula" />
-    <mapping class="entities.Actores" />
-    <mapping class="entities.Directores" />
+    <mapping class="entities.Actor" />
+    <mapping class="entities.Director" />
 </session-factory>
 </hibernate-configuration>

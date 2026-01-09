@@ -3,7 +3,6 @@ package com.example;
 import config.HibernateUtil;
 import repositories.AlumnoRepository;
 import repositories.CentroRepository;
-
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
