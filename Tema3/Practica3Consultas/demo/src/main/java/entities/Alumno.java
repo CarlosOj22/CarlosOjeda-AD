@@ -18,7 +18,7 @@ public class Alumno extends Persona {
         name="alumnos_modulos",
         joinColumns = {@JoinColumn(name ="persona_id")},
         inverseJoinColumns = {@JoinColumn(name="modulo_id")}
-    )
+    )   
     private List<Modulo> modulos;
 
     private int edad;

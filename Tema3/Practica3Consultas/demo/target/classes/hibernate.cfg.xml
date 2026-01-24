@@ -4,10 +4,9 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:33060/BDTem3Prac3Consultas?createDatabaseIfNotExist=true</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:33060/bd_hibernate?createDatabaseIfNotExist=true</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
-    <!-- PONGO VALIDATE POR QUE EJECUTABA Y NO MOSTABA DATOS Y ESQUE LAS VOLVIA A CREAR VACIAS-->
     <property name="hibernate.hbm2ddl.auto">validate</property>
     <property name="hibernate.dialect.storage_engine">innodb</property>
     <property name="hibernate.show_sql">false</property>

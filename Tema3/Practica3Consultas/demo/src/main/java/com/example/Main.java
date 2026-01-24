@@ -54,7 +54,7 @@ public class Main {
 
     }
 
-
+//SELECT c.nombre, COUNT(a) FROM alumno a JOIN a.centro c GROUP BY c.nombre;
     //-------------------------------------------------------------------------------------//
     //CONSULTA 2
     /*Datos de los centros y el número total de alumnos matriculados en cada uno 
@@ -75,7 +75,8 @@ public class Main {
         }
     }
 
-
+//SELECT a FROM alumnos a JOIN a.centro c WHERE c IN (SELECT c2 FROM alumnos a2 
+//JOIN a2.centro c2 GROUP BY c2 HAVING COUNT (a2>2))
     //-------------------------------------------------------------------------------------//
     //CONSULTA 3
     /*Muestra los datos de los alumnos que están en centros con más de 2 alumnos
@@ -102,7 +103,8 @@ public class Main {
         }
     }
 
-
+    //SELECT a.nombre FROM alumnos a WHERE a.edad>(SELECT AVG(a2.edad) FROM alumnos a2 
+    //WHERE a2.centro=a.centro
     //-------------------------------------------------------------------------------------//
     //CONSULTA 4
     /*Muestra el nombre (sólo este campo) de los alumnos cuya edad está por encima de la
@@ -125,7 +127,7 @@ public class Main {
     }
 
 
-
+    
     //-------------------------------------------------------------------------------------//
     //CONSULTA 5
     /*Muestra los datos del alumno o alumnos más veteranos y un listado de sus módulos
@@ -154,8 +156,6 @@ public class Main {
     }
     
 
-
-
     //-------------------------------------------------------------------------------------//
     //CONSULTA 6
     /*Muestra los datos de los módulos que comienzan por “P” y un listado de sus 
@@ -182,6 +182,5 @@ public class Main {
                 }
             }
         }
-        
     }
 }

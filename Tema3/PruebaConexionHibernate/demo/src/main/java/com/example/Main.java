@@ -21,7 +21,7 @@ public class Main {
     Centro centro=null;
     Modulo prog;
     Modulo datos;
-    Modulo movil;
+    Modulo movil; 
     ArrayList<Modulo> modulosLista=null;
     CentroRepository centroRepository=null;
 
